@@ -8,6 +8,12 @@ BEGIN { $ENV{SPVM_BUILD_DIR} = "$FindBin::Bin/.spvm_build"; }
 
 use SPVM 'TestCase::Cwd';
 
-ok(SPVM::TestCase::Cwd->test);
+use Cwd 'getcwd';
+
+# getcwd
+{
+  my $cur_dir = getcwd;
+  is(SPVM::TestCase::Cwd->getcwd_value, $cur_dir);
+}
 
 done_testing;

@@ -1,7 +1,8 @@
 class TestCase::Cwd {
   use Cwd;
-  static method test : int () {
+  static method getcwd_value : string () {
+    my $cur_dir = Cwd->getcwd;
     
-    return 1;
+    return $cur_dir;
   }
 }
