@@ -12,10 +12,16 @@ SPVM::Cwd - get pathname of current working directory
 
   use Cwd;
   my $dir = Cwd->getcwd;
-  
+
 =head1 Description
 
 This module provides functions for determining the pathname of the current working directory.
+
+C<Cwd> is a L<SPVM> module.
+
+=head1 Caution
+
+L<SPVM> is yet experimental status.
 
 =head1 Class Methods
 
