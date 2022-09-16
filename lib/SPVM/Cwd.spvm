@@ -2,9 +2,31 @@ class Cwd {
   use Fn;
   use Sys::IO;
   use Sys;
-  
-  native static method getcwd : string ();
 
+  private static method replace_chars : void ($string : mutable string, $from : byte, $to : byte) {
+    
+    unless ($string) {
+      die "The string must be defined";
+    }
+    
+    my $string_length = length $string;
+    for (my $i = 0; $i < $string_length; $i++) {
+      if ($string->[$i] == $from) {
+        $string->[$i] = $to;
+      }
+    }
+  }
+  
+  static method getcwd : string () {
+    my $cwd = Sys::IO->getcwd(undef, 0);
+    
+    if (Sys->is_D_WIN32) {
+      &replace_chars($cwd, '\\', '/');
+    }
+    
+    return $cwd;
+  }
+  
   native static method realpath : string ($file : string);
   static method abs_path : string ($file :string) { return &realpath($file); }
   

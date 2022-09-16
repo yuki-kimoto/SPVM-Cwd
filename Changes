@@ -1,6 +1,8 @@
 0.03 2022-09-16
   [New Features]
     * Add the getdcwd method to the Cwd class.
+  [Changes]
+    * The getcwd method in the Cwd calls the getcwd method in the Sys::IO internally.
   [Prerequirement Changes]
     * Need SPVM::Sys 0.03+.
 
