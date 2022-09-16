@@ -46,6 +46,7 @@ if ($^O eq 'MSWin32') {
   {
     my $path = 't/lib/../basic.t';
     my $abs_path = SPVM::Cwd->abs_path($path);
+    like($abs_path, qr|\Qt/basic.t|);
     my $realpath = SPVM::Cwd->realpath($path);
     is($abs_path, $realpath);
   }
