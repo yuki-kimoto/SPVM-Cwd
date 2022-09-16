@@ -27,7 +27,19 @@ class Cwd {
     return $cwd;
   }
   
-  native static method realpath : string ($file : string);
+  static method realpath : string ($file : string) {
+    if (Sys->is_D_WIN32) {
+      my $realpath = Sys::IO->_fullpath(undef, $file, 0);
+      
+      return $realpath;
+    }
+    else {
+      my $realpath = Sys::IO->realpath($file, undef);
+      
+      return $realpath;
+    }
+  }
+  
   static method abs_path : string ($file :string) { return &realpath($file); }
   
   static method getdcwd : string ($drive = undef : string) {

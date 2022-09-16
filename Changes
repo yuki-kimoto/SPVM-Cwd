@@ -3,6 +3,7 @@
     * Add the getdcwd method to the Cwd class.
   [Changes]
     * The getcwd method in the Cwd calls the getcwd method in the Sys::IO internally.
+    * The realpath method in the Cwd calls the realpath method and the _fullpath method in the Sys::IO internally.
   [Prerequirement Changes]
     * Need SPVM::Sys 0.03+.
 
