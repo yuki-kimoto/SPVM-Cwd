@@ -13,8 +13,8 @@ use Cwd 'getcwd';
 
 # getcwd
 {
-  my $expected_cur_dir = getcwd;
-  ok(SPVM::TestCase::Cwd->getcwd($expected_cur_dir));
+  my $cur_dir_expected = getcwd;
+  ok(SPVM::TestCase::Cwd->getcwd($cur_dir_expected));
 }
 
 # getdcwd
@@ -28,23 +28,23 @@ if ($^O eq 'MSWin32') {
   {
     my $path = 't/basic.t';
     my $realpath = SPVM::Cwd->realpath($path);
-    my $perl_realpath = Cwd::realpath($path);
+    my $realpath_expected = Cwd::realpath($path);
     warn $realpath;
-    is($realpath, $perl_realpath);
+    is($realpath, $realpath_expected);
   }
   {
     my $path = 't/lib/../basic.t';
     my $realpath = SPVM::Cwd->realpath($path);
-    my $perl_realpath = Cwd::realpath($path);
+    my $realpath_expected = Cwd::realpath($path);
     warn $realpath;
-    is($realpath, $perl_realpath);
+    is($realpath, $realpath_expected);
   }
 }
 
 # abs_path
 {
   {
-    my $path = 't/basic.t';
+    my $path = 't/lib/../basic.t';
     my $abs_path = SPVM::Cwd->abs_path($path);
     my $realpath = SPVM::Cwd->realpath($path);
     is($abs_path, $realpath);
