@@ -29,14 +29,14 @@ if ($^O eq 'MSWin32') {
     my $path = 't/basic.t';
     my $realpath = SPVM::Cwd->realpath($path);
     my $realpath_expected = Cwd::realpath($path);
-    warn $realpath;
+    warn "Got:$realpath, Expected:$realpath_expected";
     is($realpath, $realpath_expected);
   }
   {
     my $path = 't/lib/../basic.t';
     my $realpath = SPVM::Cwd->realpath($path);
     my $realpath_expected = Cwd::realpath($path);
-    warn $realpath;
+    warn "Got:$realpath, Expected:$realpath_expected";
     is($realpath, $realpath_expected);
   }
 }
