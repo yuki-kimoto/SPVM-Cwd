@@ -1,4 +1,6 @@
 0.03 2022-09-16
+  [New Features]
+    * Add the getdcwd method to the Cwd class.
   [Prerequirement Changes]
     * Need SPVM::Sys 0.03+.
 

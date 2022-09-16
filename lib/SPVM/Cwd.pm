@@ -49,6 +49,14 @@ Uses the same algorithm as getcwd(). Symbolic links and relative-path components
 
 A synonym for abs_path().
 
+=head2 getdcwd
+
+  static method getdcwd : string ($drive = undef : string) {
+
+The getdcwd() function is also provided on Win32 to get the current working directory on the specified drive, since Windows maintains a separate current working directory for each drive. If no drive is specified then the current drive is assumed.
+
+This function simply calls the Microsoft C library _getdcwd() function.
+
 =head1 Repository
 
 L<https://github.com/yuki-kimoto/SPVM-Cwd>
