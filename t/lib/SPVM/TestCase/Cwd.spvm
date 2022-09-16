@@ -1,8 +1,22 @@
 class TestCase::Cwd {
   use Cwd;
-  static method getcwd_value : string () {
+  static method getcwd : string ($expect_cur_dir : string) {
     my $cur_dir = Cwd->getcwd;
     
-    return $cur_dir;
+    unless ($cur_dir eq $expect_cur_dir) {
+      return 0;
+    }
+    
+    return 1;
+  }
+
+  static method getdcwd : string ($expect_cur_dir : string) {
+    my $cur_dir = Cwd->getdcwd;
+    
+    unless ($cur_dir eq $expect_cur_dir) {
+      return 0;
+    }
+    
+    return 1;
   }
 }

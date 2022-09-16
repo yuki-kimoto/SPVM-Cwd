@@ -13,8 +13,14 @@ use Cwd 'getcwd';
 
 # getcwd
 {
-  my $cur_dir = getcwd;
-  is(SPVM::TestCase::Cwd->getcwd_value, $cur_dir);
+  my $expected_cur_dir = getcwd;
+  ok(SPVM::TestCase::Cwd->getcwd($expected_cur_dir));
+}
+
+# getdcwd
+if ($^O eq 'MSWin32') {
+  my $cur_dir = Cwd::getdcwd();
+  ok(SPVM::TestCase::Cwd->getdcwd($cur_dir));
 }
 
 # realpath, abs_path
