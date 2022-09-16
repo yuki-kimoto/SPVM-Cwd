@@ -5,6 +5,7 @@
 .github/workflows/windows-2019.yml
 .gitignore
 Changes
+cpanm
 lib/SPVM/Cwd.pm
 lib/SPVM/Cwd.spvm
 Makefile.PL
