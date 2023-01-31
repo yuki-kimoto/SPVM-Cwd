@@ -1,4 +1,6 @@
 0.05 2023-01-31
+  [Prerequrement Changes]
+    * SPVM::Cwd needs SPVM 0.9688+ adn SPVM::Sys 0.35+.
   [Bug Fix]
     * Fixed bugs that Cwd didn't work on Windows.
   [Improved Excetpion Messages]
