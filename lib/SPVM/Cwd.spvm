@@ -16,8 +16,13 @@ class Cwd {
   static method realpath : string ($file : string) {
     if (Sys->defined("_WIN32")) {
       my $realpath = Sys::IO->_fullpath(undef, $file, 0);
-
+      
       Fn->replace_chars($realpath, '\\', '/');
+      
+      my $realpath_length = length $realpath;
+      if ($realpath ne "/" && $realpath->[$realpath_length - 1] == '/') {
+        Fn->shorten($realpath, $realpath_length - 1);
+      }
       
       return $realpath;
     }
